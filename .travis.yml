@@ -32,7 +32,7 @@ before_deploy:
   - npm run build
 deploy:
   provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  script: netlify deploy -s $TRAVIS_NETLIFY_SITE_ID -t $TRAVIS_NETLIFY_ACCESS_TOKEN -p ./build
   skip_cleanup: true
   on:
     branch: travis
