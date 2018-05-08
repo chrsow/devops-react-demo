@@ -1,4 +1,3 @@
----
 dist: trusty
 language: node_js
 node_js:
@@ -11,11 +10,11 @@ cache:
   - packages/react-scripts/node_modules
 install: true
 script:
-#  - 'if [ $TEST_SUITE = "simple" ]; then tasks/e2e-simple.sh; fi'
-#  - 'if [ $TEST_SUITE = "installs" ]; then tasks/e2e-installs.sh; fi'
-#  - 'if [ $TEST_SUITE = "kitchensink" ]; then tasks/e2e-kitchensink.sh; fi'
-#  - 'if [ $TEST_SUITE = "old-node" ]; then tasks/e2e-old-node.sh; fi'
-  - npm test
+  - 'if [ $TEST_SUITE = "simple" ]; then tasks/e2e-simple.sh; fi'
+  - 'if [ $TEST_SUITE = "installs" ]; then tasks/e2e-installs.sh; fi'
+  - 'if [ $TEST_SUITE = "kitchensink" ]; then tasks/e2e-kitchensink.sh; fi'
+  - 'if [ $TEST_SUITE = "old-node" ]; then tasks/e2e-old-node.sh; fi'
+  # - npm test
 env:
   matrix:
     - TEST_SUITE=simple
@@ -33,7 +32,7 @@ before_deploy:
   - npm run build
 deploy:
   provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
+  script: netlify deploy -s $TRAVIS_NETLIFY_SITE_ID -t $TRAVIS_NETLIFY_ACCESS_TOKEN -p ./build
   skip_cleanup: true
   on:
     branch: travis
