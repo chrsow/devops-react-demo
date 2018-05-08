@@ -14,13 +14,13 @@ jobs:
       - deploy:
           name: Maybe Deploy
           command: |
-            if [ "${CIRCLE_BRANCH}" == "development" ]; then
+            if [ "${CIRCLE_BRANCH}" == "circleci" ]; then
               echo "Deploy Development"
               npm run build
               ./node_modules/netlify-cli/bin/cli.js deploy \
                 --site-id ${DEV_SITE_ID} \
                 -p build/ \
-                --access-token ${NETLIFY_TOKEN}
+                --access-token ${CIRCLECI_NETLIFY_TOKEN}
             else
               echo "Not master branch so not deploying"
             fi
