@@ -1,0 +1,1 @@
+https://api.wp-kyoto.net/deploy-netlify-by-circle-ci-create-react-app/
