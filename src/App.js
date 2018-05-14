@@ -13,7 +13,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>Hello From Netlify</p>
+        <p>Goodbye From Netlify</p>
       </div>
     );
   }
